@@ -302,7 +302,7 @@ void transpose_paral(Real** bt, Real** b, int* sdispl,int* scount, int m, int di
 	
 	MPI_Alltoallv(bt[0], scount, sdispl, MPI_DOUBLE, b[0], scount, sdispl, MPI_DOUBLE, communicator);
 	
-	#pragma omp parallell for schedule(dynamic) private(i)
+	#pragma omp parallel for schedule(dynamic) private(j)
 	for (i = 0; i < m; i++)
 	{
 		for (j = 0; j < dist; j++)
