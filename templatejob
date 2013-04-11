@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#PBS -N $NAME
+#
+# Account to run job (change the account name: See Accounting above)
+#PBS -A freecycle
+#
+# max walltime (must not exceed que max walltime)
+#PBS -l walltime=00:$MIN:$SEK
+#
+# Specify queue to submit to: default, bigmem, express or default
+#PBS -q optimist
+#
+#PBS -lnodes=$LNODES:ppn=$PPN
+#
+#PBS -M emily.siggerud@gmail.com
+
+cd $PBS_O_WORKDIR
+module load intel/compilers/11.1.059
+OMP_NUM_THREADS=$OMP mpirun -npernode $MPIPN -hostfile $PBS_NODEFILE ./conv_time $SIZE
+
+
