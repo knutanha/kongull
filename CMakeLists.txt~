@@ -39,28 +39,9 @@ ENDIF(MPI_FOUND)
 INCLUDE_DIRECTORIES(${INCLUDES})
 
 
-#ADD_EXECUTABLE(poisson poisson.c fst.f)
-#SET_TARGET_PROPERTIES(poisson PROPERTIES LINKER_LANGUAGE C)
-
-#ADD_EXECUTABLE(poisson_f poisson.f fst.f)
-
-#ADD_EXECUTABLE(mat matrisesjekk.c)
-
-#ADD_EXECUTABLE(alle alltoallcheck.c)
-
-
 # Jeg har kalt fila jeg kjører fra for poisson_mp.c
-ADD_EXECUTABLE(testlol poisson_paral.c fst.f)
-SET_TARGET_PROPERTIES(testlol PROPERTIES LINKER_LANGUAGE C)
-ADD_EXECUTABLE(poisson_omp poisson_OMP.c fst.f)
-SET_TARGET_PROPERTIES(poisson_omp PROPERTIES LINKER_LANGUAGE C)
-ADD_EXECUTABLE(poisson_time poisson_time.c fst.f)
-SET_TARGET_PROPERTIES(poisson_time PROPERTIES LINKER_LANGUAGE C)
-ADD_EXECUTABLE(poisson_conv convergence.c fst.f)
-SET_TARGET_PROPERTIES(poisson_conv PROPERTIES LINKER_LANGUAGE C)
 ADD_EXECUTABLE(conv_time conv_time.c fst.f)
 SET_TARGET_PROPERTIES(conv_time PROPERTIES LINKER_LANGUAGE C)
 
-
-SET(CMAKE_C_COMPILER mpicc)
-SET(CMAKE_CXX_COMPILER mpicxx)
+SET(CMAKE_C_COMPILER icc)
+SET(CMAKE_FC_COMPILER ifort)

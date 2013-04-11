@@ -42,4 +42,6 @@ INCLUDE_DIRECTORIES(${INCLUDES})
 # Jeg har kalt fila jeg kjører fra for poisson_mp.c
 ADD_EXECUTABLE(conv_time conv_time.c fst.f)
 SET_TARGET_PROPERTIES(conv_time PROPERTIES LINKER_LANGUAGE C)
-SET(CMAKE_C_COMPILER icc)
+
+#SET(CMAKE_C_COMPILER icc)
+#SET(CMAKE_FC_COMPILER ifort)
